@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Arena</title>
+
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        background-color: rgb(56, 56, 56);
+    }
+
+    h1,
+    h4 {
+        color: rgb(255, 255, 255);
+        margin: 5px;
+        text-align: center;
+    }
+
+    input {
+        align-items: center;
+        border: solid rgb(92, 92, 92);
+        text-align: center;
+        border-radius: 7px;
+        padding: 1px 55px;
+        border-width: 2px;
+        margin: 15px;
+    }
+
+    .continer {
+        text-align: center;
+        margin: 25px;
+    }
+
+    .level {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        color: white;
+    }
+
+    button {
+        color: rgb(255, 255, 255);
+        padding: 2px 27px;
+        background-color: rgb(255, 145, 0);
+        border-radius: 7px;
+        cursor: pointer;
+
+    }
+
+    .button1 {
+        margin: 50px;
+    }
+
+    .info {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div>
+        <h1> Enter Details </h1>
+    </div>
+    <div id="continer" class="continer">
+        <h4>Name</h4>
+        <input id="name" type="text" placeholder="Enter Name">
+
+        <h4>Select Mode</h4>
+        <div id="level" class="level">
+            <nav>Easy <input type="radio" name="level"> </nav>
+            <nav>Normal<input type="radio" name="level"> </nav>
+            <nav> Hard <input type="radio" name="level"> </nav>
+        </div>
+        <button class="button1" onclick="Game()"> Start </button>
+    </div>
+
+    <script>
+
+            document.getElementById("info").innerHTML = `
+        👤 Name: ${playerName} <br>
+        🏆 Score: ${playerScore} <br>
+        ⚡ Level: ${playerLevel} `;
+        function Game() {
+            window.location.href = "about.html";
+        }
+    </script>
+</body>
+
+</html>

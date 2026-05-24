@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgb(56, 56, 56);
+        }
+
+        .card {
+            background-color: rgb(44, 44, 44);
+            border: solid white;
+            margin-right: 5px;
+            height: 130px;
+            margin-top: 15px;
+            margin-left: 5px;
+            border-width: 1.50px;
+            border-radius: 7px;
+        }
+
+        .helth {
+            color: white;
+            margin-top: 15px;
+            margin-left: 5px;
+        }
+
+        .helth1 {
+            width: 100px;
+            height: 8px;
+            border: 1px solid white;
+            border-radius: 10px;
+            margin-left: 70px;
+            margin-top: -12px;
+            position: absolute;
+            overflow: hidden;
+            background-color: rgb(43, 43, 43);
+        }
+
+        .helth2 {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+
+        .xp {
+            color: white;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .xp1 {
+            border: solid rgb(255, 255, 255);
+            width: 100px;
+            margin-left: 70px;
+            margin-top: -12px;
+            position: absolute;
+            border-radius: 2px;
+        }
+
+        .xp2 {
+            position: absolute;
+            border: solid rgb(0, 255, 136);
+            width: 100px;
+            margin-left: -3px;
+            margin-top: -3px;
+            position: absolute;
+            border-radius: 2px;
+        }
+
+        .coin {
+            color: white;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .rupi {
+            color: white;
+            margin-left: 85px;
+            margin-top: -16px;
+        }
+
+        .level {
+            color: white;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .levell {
+            color: white;
+            margin-left: 85px;
+            margin-top: -16px;
+        }
+
+        .enemy {
+            color: white;
+            margin-top: -105px;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 200px;
+        }
+
+        .enemy1 {
+            display: flex;
+            margin-right: 170px;
+            justify-content: flex-end;
+            margin-top: -20px;
+        }
+
+        .enemyhp {
+            color: white;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 40px;
+            margin-top: 0px;
+        }
+
+        .enemy2 {
+            width: 100px;
+            height: 8px;
+            border: 1px solid white;
+            border-radius: 10px;
+            position: absolute;
+            right: 110px;
+            margin-top: -11px;
+            overflow: hidden;
+            background-color: rgb(43, 43, 43);
+        }
+
+        .enemy3 {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .arena {
+            display: block;
+            background-color: rgb(32, 32, 32);
+            border: solid;
+            margin: 5px;
+            height: 400px;
+            border-radius: 7px;
+            border-color: aqua;
+            border-width: 1.50px;
+            box-shadow: 0 0 10px aqua, 0 0 20px aqua;
+        }
+
+        .jump {
+            color: rgb(255, 255, 255);
+            background-color: orangered;
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+            width: 95px;
+            height: 35px;
+            text-shadow: 0 0 10PX white, 0 0 10PX white;
+        }
+
+        .attack {
+            color: rgb(255, 255, 255);
+            background-color: rgb(255, 0, 0);
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+            width: 95px;
+            height: 35px;
+            text-shadow: 0 0 10PX white, 0 0 10PX white;
+        }
+
+        .heal {
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 255, 191);
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+            width: 95px;
+            height: 35px;
+            text-shadow: 0 0 10PX rgb(0, 0, 0), 0 0 10PX rgb(0, 0, 0);
+        }
+
+        .shop {
+            color: rgb(255, 255, 255);
+            background-color: rgb(80, 80, 80);
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+            width: 95px;
+            height: 35px;
+            text-shadow: 0 0 10PX white, 0 0 10PX white;
+        }
+
+        .but {
+            margin: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .butt {
+            margin-top: 10px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(104, 104, 104);
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+            width: 95px;
+            height: 35px;
+            text-shadow: 0 0 10PX white, 0 0 10PX white;
+            justify-content: flex-end;
+        }
+
+        .box {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 70px;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        #character {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 230px;
+            right: 1px;
+        }
+
+        /* animetion pf plyer */
+        #character {
+            transition: 0.3s;
+            animation: combo 2s infinite ease-in-out;
+
+            @keyframes combo {
+
+                0% {
+                    transform: translateX(0px);
+                }
+
+                50% {
+                    transform: translateX(-20px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+                }
+
+            }
+        }
+
+        .plyer {
+            position: absolute;
+            margin-top: -150px;
+            left: 10px;
+            animation: combo 20s infinite ease-in-out;
+        }
+
+        .jumpp {
+
+            transform: translateY(-220px);
+        }
+
+        :root {
+            --attackX: 400px;
+        }
+
+        .hamla {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: chartreuse;
+            right: 85px;
+            margin-top: -100px;
+            animation: attackMove 1s linear;
+            animation-fill-mode: forwards;
+        }
+
+        #hamla {
+            position: absolute;
+        }
+
+        @keyframes attackMove {
+
+            from {
+                transform: translateX(0px);
+            }
+
+            to {
+                transform: translateX(-100vw);
+            }
+        }
+
+        #attackk {
+            position: absolute;
+            width: 5px;
+            height: 50px;
+            border: solid rgba(255, 255, 255, 0.603);
+            background: rgba(102, 102, 102, 0.699);
+            left: 115px;
+            margin-top: -130px;
+            transform: rotate(25deg);
+            opacity: 12px;
+        }
+
+        .attackMove {
+            animation: hit 0.5s linear;
+        }
+
+        @keyframes hit {
+
+            from {
+                transform: translateX(0px) rotate(25deg);
+            }
+
+            to {
+                transform: translateX(100vw) rotate(25deg);
+            }
+        }
+
+        #ripp {
+            position: absolute;
+            margin-top: -150px;
+            height: 150px;
+        }
+
+        #msg {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border: solid;
+            height: 65px;
+            width: 350px;
+            margin-bottom: -50px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin-top: 10px;
+            font-size: 20px;
+            border-width: 2px;
+        }
+
+        .mesbox {
+            justify-items: center;
+        }
+
+        #shopp {
+            position: absolute;
+            border: solid white;
+            height: 450px;
+            width: 350px;
+            margin-top: -350px;
+            justify-self: center;
+            box-shadow: 0 0 10px white;
+            background-color: transparent;
+        }
+
+        .shoptitle {
+            text-align: center;
+            color: white;
+        }
+
+        #shopp {
+            display: none;
+        }
+
+        #shopp.show {
+            display: block;
+        }
+
+        #pl2 {
+            margin-top: 15px;
+            justify-self: center;
+            color: aliceblue;
+        }
+
+        .buy1 {
+            display: block;
+            margin: 30px;
+            text-align: center;
+            margin-top: 10px;
+            width: 100px;
+            height: 35px;
+            border: none;
+            border-radius: 12px;
+            justify-content: flex-end;
+            background: linear-gradient(135deg, #f5c731, #f39a14);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow:
+                0 0 10px rgba(255, 204, 51, 0.7),
+                0 0 20px rgba(255, 179, 71, 0.5);
+        }
+
+        .buy1:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 15px rgba(255, 204, 51, 1),
+                0 0 30px rgba(255, 179, 71, 0.8);
+        }
+
+        .buy1:active {
+            transform: scale(0.95);
+        }
+
+        .buyenemy {
+            display: block;
+            margin: 30px;
+            text-align: center;
+            margin-top: 10px;
+            width: 100px;
+            height: 35px;
+            border: none;
+            border-radius: 12px;
+            justify-content: flex-end;
+            background: linear-gradient(135deg, #f5c731, #f39a14);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow:
+                0 0 10px rgba(255, 204, 51, 0.7),
+                0 0 20px rgba(255, 179, 71, 0.5);
+        }
+
+        .buyenemy:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 15px rgba(255, 204, 51, 1),
+                0 0 30px rgba(255, 179, 71, 0.8);
+        }
+
+        .buyenemy:active {
+            transform: scale(0.95);
+        }
+
+        #pause {
+            background-color: rgba(126, 252, 0, 0.747);
+            color: white;
+            padding: 5px 25px;
+            border: solid rgb(0, 0, 0);
+            border-width: 2px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div class="card">
+
+        <p class="helth">❤️Hp
+        <div class="helth1">
+            <div class="helth2"></div>
+        </div>
+        </p>
+
+        <p class="xp">✨XP
+        <div id="xpp" class="xp1">
+            <div class="xp2"></div>
+        </div>
+        </p>
+
+        <P class="coin">🪙Coins :-
+        <p class="rupi">0</p>
+        </P>
+
+        <p class="level">⚡Level :-
+        <p class="levell">0</p>
+        </p>
+
+        <p class="enemy">⚔️ Enemy :-
+        <p class="enemy1">🧟</p>
+        </p>
+
+        <P class="enemyhp">-: HP 🖤
+        <div class="enemy2">
+            <div class="enemy3"></div>
+        </div>
+        </P>
+
+        <div class="box">
+            <button id="pause" onclick="pause()">▶ Pause</button>
+        </div>
+
+    </div>
+
+    <div class="arena">
+
+        <nav id="character">
+            <img height="150px" src="zombi.png" alt="">
+        </nav>
+
+        <nav class="plyer" id="plyerr">
+            <img id="plyer" height="150px" src="p1.png" alt="">
+            <div id="attackk"></div>
+        </nav>
+
+        <div id="hamla"></div>
+        <img id="ripp" src="ri.png" alt="">
+
+        <div id="shopp">
+            <h1 class="shoptitle">Shop </h1>
+            <nav id="pl2"> <img height="100px " src="p2.png" alt=""> Plyer 2</nav>
+            <button class="buy1"> Buy - 🪙1000</button>
+            <nav id="pl2"> <img height="120px " src="dr.png" alt=""> Enemy 2</nav>
+            <button class="buyenemy"> Buy - 🪙1000</button>
+
+        </div>
+    </div>
+</body>
+
+<div class="but">
+    <button class="jump" onclick="jump()">Jump</button>
+    <button class="attack" onclick="startattackk()">
+        Attack
+    </button>
+    <button class="heal" onclick="heal()">Heal</button>
+    <button class="shop" onclick="shop(event)">
+        Shop
+    </button>
+</div>
+
+<div class="mesbox">
+    <p id="msg">💬 message...</p>
+</div>
+
+<script>
+    function heal() {
+
+        let msg = document.getElementById("msg");
+
+        if (coins >= 100) {
+
+            coins -= 100;
+
+            playerHp += 20;
+
+            if (playerHp > 100) {
+                playerHp = 100;
+            }
+
+            document.querySelector(".rupi").innerText = coins;
+
+            updateHealth();
+
+            msg.innerText = "❤️ Healed +20 HP";
+
+        } else {
+
+            msg.innerText = "❌ Not enough coins";
+
+        }
+
+        setTimeout(() => {
+            msg.innerText = "💬 message...";
+        }, 2000);
+    }
+
+    let coins = 0;
+    let xpp = 0;
+    let playerLevel = 0;
+    let isAttacking = false;
+    let character = "Zombie";
+    let damege = 0;
+    let criticalHit = Math.random() * 500;
+    let enemyAttack = Math.random() * 100;
+    let isPaused = false;
+
+    document.querySelector(".rupi").innerText = coins;
+    let playerHp = 100;
+
+    let enemyHp = 100;
+    let playerBar = document.querySelector(".helth2");
+    let enemyBar = document.querySelector(".enemy3");
+
+    function updateHealth() {
+        playerBar.style.width = playerHp + "%";
+        enemyBar.style.width = enemyHp + "%";
+    }
+
+    let attackk = document.getElementById("attackk");
+    updateHealth();
+
+    let rewardGiven = false;
+
+    function startattackk() {
+
+        if (isPaused) return;
+        isAttacking = true;
+
+        enemyHp -= 3;
+        if (enemyHp < 0) {
+            enemyHp = 0;
+        }
+
+        setTimeout(() => {
+            isAttacking = false;
+        }, 500);
+
+        // XP increase
+        xpp += 3;
+
+        // max XP 100
+        if (xpp > 100) {
+            xpp = 100;
+        }
+
+        // XP bar update
+        document.querySelector(".xp2").style.width = xpp + "%";
+
+        // level update
+        if (xpp >= 100) {
+
+            playerLevel++;
+
+            xpp = 0;
+
+            document.querySelector(".levell").innerText = playerLevel;
+        }
+
+        document.querySelector(".xp2").style.width = xpp + "%";
+
+        // reward system
+        if (enemyHp <= 50 && !rewardGiven) {
+
+            coins += 100;
+
+            document.querySelector(".rupi").innerText = coins;
+
+            rewardGiven = true;
+        }
+
+        // enemy dead
+        if (enemyHp <= 0) {
+
+            coins += 200;
+
+            document.querySelector(".rupi").innerText = coins;
+
+            enemyHp = 100;
+
+            rewardGiven = false;
+        }
+
+        updateHealth();
+
+        // sword animation
+        attackk.classList.remove("attackMove");
+
+        void attackk.offsetWidth;
+
+        attackk.classList.add("attackMove");
+    }
+
+
+    updateHealth();
+    let player = document.getElementById("plyerr");
+    let hamla = document.getElementById("hamla");
+    let canPlayerTakeDamage = true;
+    let canEnemyTakeDamage = true;
+
+    function checkCollision() {
+        if (isPaused) return;
+
+        let playerRect = player.getBoundingClientRect();
+        let attackRect = hamla.getBoundingClientRect();
+
+        if (
+            playerRect.left < attackRect.right &&
+            playerRect.right > attackRect.left &&
+            playerRect.top < attackRect.bottom &&
+            playerRect.bottom > attackRect.top
+        ) {
+
+            if (canPlayerTakeDamage) {
+
+                playerHp -= 10;
+
+                if (playerHp < 0) {
+                    playerHp = 0;
+                }
+
+                updateHealth();
+
+                canPlayerTakeDamage = false;
+
+                setTimeout(() => {
+                    canPlayerTakeDamage = true;
+                }, 1000);
+            }
+        }
+    }
+    updateHealth();
+    setInterval(() => {
+        checkCollisionn();
+    }, 50);
+
+    let enemy = document.getElementById("character");
+
+    function checkCollisionn() {
+        if (isPaused) return;
+
+        let enemyRect = enemy.getBoundingClientRect();
+
+        let attackRect = attackk.getBoundingClientRect();
+
+        if (
+            enemyRect.left < attackRect.right &&
+            enemyRect.right > attackRect.left &&
+            enemyRect.top < attackRect.bottom &&
+            enemyRect.bottom > attackRect.top
+        ) {
+
+            if (canEnemyTakeDamage) {
+
+                
+
+                if (enemyHp < 0) {
+                    enemyHp = 0;
+                }
+
+                updateHealth();
+
+                canEnemyTakeDamage = false;
+
+                setTimeout(() => {
+                    canEnemyTakeDamage = true;
+                }, 300);
+            }
+        }
+    }
+    let plyer = document.getElementById("plyerr");
+    function jump() {
+        if (isPaused) return;
+
+        plyer.classList.add("jumpp");
+
+        setTimeout(() => {
+
+            plyer.classList.remove("jumpp");
+
+        }, 700);
+
+    };
+
+    function startAttack() {
+
+        if (isPaused) return;
+
+        isAttacking = true;
+        // random position
+        let randomX = Math.random() * 500;
+        // CSS variable change
+        document.documentElement
+            .style
+            .setProperty("--attackX", randomX + "px");
+
+        // animation restart
+        hamla.classList.remove("hamla");
+
+        void hamla.offsetWidth;
+
+        hamla.classList.add("hamla");
+
+        // next attack after random time
+        let nextTime = Math.random() * 4000 + 1000;
+
+        setTimeout(startAttack, nextTime);
+    }
+    startAttack();
+
+    setInterval(() => {
+        checkCollision();
+    }, 50);
+
+    function shop(event) {
+
+        event.stopPropagation();
+
+        document.getElementById("shopp").classList.toggle("show");
+    }
+
+    // click outside = close
+    document.addEventListener("click", function () {
+
+        document.getElementById("shopp").classList.remove("show");
+
+    });
+    function pause() {
+
+        isPaused = !isPaused;
+
+        let btn = document.getElementById("pause");
+
+        if (isPaused) {
+
+            btn.innerText = "▶ Resume";
+
+        } else {
+
+            btn.innerText = "⏸ Pause";
+        }
+    }
+</script>
+
+</html>
